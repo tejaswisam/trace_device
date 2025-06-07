@@ -2,7 +2,9 @@
 
 **TRACE (Tool for Rapid Analysis, Calibration and Evaluation)** is a compact, modular, multi-sensor embedded device designed for real-time measurement and display of spatial data. The device integrates various sensors with an interactive graphical interface to support tasks such as precision distance measurement, orientation tracking, and heading detection.
 
-![trace_device](assets/trace_device.png){ width="300" }
+<p align="center">
+<img src="assets/trace_device.png" alt="trace_device" width="400"/>
+</p>
 
 ## Overview
 
@@ -31,29 +33,27 @@ TRACE is engineered to provide accurate, multi-modal measurement capabilities in
 | Microcontroller      | ESP32-WROOM Module                         |
 | Display              | Waveshare 1.69" LCD (SPI, 240×280, IPS)    |
 | IMU                  | BNO055 (or compatible 9-axis IMU)          |
-| ToF Sensor           | VL53L0X / VL53L1X                          |
+| ToF Sensor           | VL53L1X                          |
 | Magnetic Encoder     | AS5600 Magnetic Rotary Encoder             |
 | Input                | KY-040 Rotary Encoder with push button     |
 | Power Supply         | Li-ion battery with USB charging support   |
 | Enclosure            | 3D printed, ergonomic enclosure            |
-
----
 
 ## Software Architecture
 
 The firmware is developed using the Arduino framework and structured for clarity and modularity:
 ```
 src/
-├── main.cpp              # Main entry point
-├── display.cpp/h         # LVGL UI and rendering logic
-├── sensors.cpp/h         # IMU, ToF, and Encoder data management
-├── navigation.cpp/h      # Rotary encoder input handling
-├── events.cpp/h          # Event callbacks for UI elements
+├── main.cpp            # Main entry point
+├── display.cpp         # LVGL UI and rendering logic
+├── sensors.cpp         # IMU, ToF, and Encoder data management 
+├── navigation.cpp      # Rotary encoder input handling
+├── events.cpp          # Event callbacks for UI elements
 ```
 
 - **UI Library**: [LVGL v9+](https://lvgl.io/)
 - **Development Environment**: PlatformIO (recommended) or Arduino IDE
-- **Optional**: FreeRTOS integration for multi-tasking
+- **RTOS Used**: FreeRTOS integration for multi-tasking
 
 ## Build and Upload Instructions
 
@@ -87,16 +87,12 @@ platformio upload
 
    * Placeholder for calibration and device configuration options
 
----
-
 ## Project Goals and Use Cases
 
 * Portable spatial data capture for CAD integration
 * Indoor measurement in constrained or GPS-denied environments
 * Robotic mapping and sensor fusion applications
 * Educational demonstrations of embedded systems and sensor integration
-
----
 
 ## Future Development
 
@@ -105,25 +101,10 @@ platformio upload
 * SD card support for offline data logging
 * Mobile application interface for live visualization
 
----
-
 ## License
 
 This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this software under the terms of the license.
 
----
-
-## Contribution Guidelines
-
-Contributions are welcome and encouraged. Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature-name`)
-3. Commit your changes with clear messages
-4. Push to your fork and open a pull request
-
----
-
 ## Contact
 
-For questions, support, or collaboration inquiries, please open a GitHub issue or contact the maintainers at `<tejaswisamavedula@gmail.com>`.
+For questions, support, or collaboration inquiries, please open a GitHub issue or contact the maintainers at `tejaswisamavedula@gmail.com`.
